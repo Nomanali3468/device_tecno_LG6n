@@ -12,3 +12,6 @@ AB_OTA_PARTITIONS := \
 
 PRODUCT_PACKAGES += \
     update_engine_sideload
+
+# API Level
+PRODUCT_SHIPPING_API_LEVEL := 31

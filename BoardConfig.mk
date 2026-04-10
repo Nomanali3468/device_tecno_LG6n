@@ -87,3 +87,42 @@ TW_DEFAULT_BRIGHTNESS := 1200
 # Prebuilt Kernel
 TARGET_PREBUILT_KERNEL := device/tecno/LG6n/prebuilt/Image.gz
 BOARD_INCLUDE_DTB_IN_BOOTIMG := false
+
+# Workaround for vendor copy
+TARGET_COPY_OUT_VENDOR := vendor
+
+# Anti-rollback hack
+PLATFORM_SECURITY_PATCH := 2099-12-31
+VENDOR_SECURITY_PATCH := 2099-12-31
+PLATFORM_VERSION := 16.1.0
+
+# Metadata
+BOARD_USES_METADATA_PARTITION := true
+
+# A/B Recovery
+TARGET_NO_RECOVERY := true
+TW_HAS_NO_RECOVERY_PARTITION := true
+TW_INCLUDE_REPACKTOOLS := true
+
+# System root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+
+# Crypto
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_USE_FSCRYPT_POLICY := 2
+
+# Storage
+RECOVERY_SDCARD_ON_DATA := true
+
+# Debug
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+
+# Copy out paths
+TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+
+# Theme
+TW_THEME := portrait_hdpi
