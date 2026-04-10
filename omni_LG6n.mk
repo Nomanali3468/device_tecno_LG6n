@@ -1,5 +1,4 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
-$(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, device/tecno/LG6n/device.mk)
 
 # Device identifier
