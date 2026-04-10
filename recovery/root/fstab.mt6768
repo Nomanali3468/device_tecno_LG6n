@@ -1,0 +1,23 @@
+# TECNO LG6n (MT6768) Recovery fstab
+
+# Logical/Dynamic partitions (A/B)
+system      /system     erofs   ro,wait,slotselect,avb=vbmeta_system,logical,first_stage_mount     flags=display="System"
+vendor      /vendor     erofs   ro,wait,slotselect,avb,logical,first_stage_mount                   flags=display="Vendor"
+product     /product    erofs   ro,wait,slotselect,avb,logical,first_stage_mount                   flags=display="Product"
+system_ext  /system_ext erofs   ro,wait,slotselect,avb,logical,first_stage_mount                   flags=display="System_Ext"
+
+# Data
+/dev/block/by-name/userdata     /data       f2fs    noatime,nosuid,nodev,discard    flags=display="Data";fileencryption=aes-256-xts:aes-256-cts:v2;keydirectory=/metadata/vold/metadata_encryption;quota;reservedsize=128m
+
+# Metadata
+/dev/block/by-name/md_udc       /metadata   ext4    noatime,nosuid,nodev,discard    flags=display="Metadata"
+
+# Boot partitions
+/dev/block/by-name/boot         /boot       emmc    defaults    flags=display="Boot";slotselect
+/dev/block/by-name/dtbo         /dtbo       emmc    defaults    flags=display="DTBO";slotselect
+/dev/block/by-name/misc         /misc       emmc    defaults    flags=display="Misc"
+/dev/block/by-name/vbmeta       /vbmeta     emmc    defaults    flags=display="VBMeta"
+
+# External storage
+/devices/platform/externdevice*     /sdcard1    auto    defaults    flags=display="SDCard";storage;wipeingui;removable
+/devices/platform/mt_usb*           /usb-otg    auto    defaults    flags=display="OTG";storage;wipeingui;removable
